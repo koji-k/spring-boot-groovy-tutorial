@@ -1,0 +1,92 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>3. Hello world - SpringBootとGroovyで始める超高速WEBアプリケーション開発</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/my.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="header">
+        <i class="fa fa-bars sidebar-toggle"></i>
+        <span class="title"><a href="../index.html">SpringBootとGroovyで始める超高速WEBアプリケーション開発</a></span>
+      </div>
+      <div class="sidebar">
+        <ul>
+          <li class="numbered visible"><a href="../index.html" data-alt-hash="springbootgroovyweb"><span class="number">1.</span>SpringBootとGroovyで超高速WEBアプリケーション開発</a></li>
+          <li class="numbered visible">
+            <a href="../installation/index.html" data-alt-hash="id-966916d5ebee30d7c7e42505300fac5b6094d6ec"><span class="number">2.</span>インストールの事前準備</a>
+            <ul>
+              <li class="numbered visible"><a href="../installation/index.html#id-bfa33649e459907bb34382f16aa31256224959fd"><span class="number">2.1.</span>前提条件（共通）</a></li>
+              <li class="numbered visible"><a href="../installation/index.html#maclinux"><span class="number">2.2.</span>Mac/Linuxユーザ</a></li>
+              <li class="numbered visible"><a href="../installation/index.html#windows"><span class="number">2.3.</span>Windowsユーザ</a></li>
+            </ul>
+          </li>
+          <li class="numbered visible"><a href="index.html" data-alt-hash="hello-world"><span class="number">3.</span>Hello world</a></li>
+        </ul>
+      </div>
+      <div class="content">
+        <div class="content-handle"></div>
+        <div class="content-container">
+          <div class="content-nav content-nav-top">
+            <a class="prev-page" href="../installation/index.html">
+            <i class="fa fa-angle-left"></i>
+            <span class="number">2.</span>
+            インストールの事前準備
+            </a>
+          </div>
+          <div class="page-toc">
+            <ul>
+              <li class="numbered visible"><a href="#hello-world"><span class="number">3.</span>Hello world</a></li>
+            </ul>
+          </div>
+          <div class="main-content">
+            <h1 id="hello-world"><span class="number">3.</span>Hello world</h1>
+            <p>適当なディレクトリに移動して、<code>hello.groovy</code>を作成し、中身を以下のようにしてください。 </p>
+            <pre><code class="groovy">@RestController
+class WebApplication {
+
+    @RequestMapping(&quot;/&quot;)
+    String home() {
+        &quot;Hello World!(Groovy version : ${GroovySystem.version})&quot;
+    }
+}
+</code></pre>
+            <p>できたら、以下のコマンドを実行してください。 </p>
+            <pre><code class="nohighlight">spring run hello.groovy
+</code></pre>
+            <p>初回起動時は依存ライブラリなどが <strong>自動で</strong> ダウンロード、設定されるので時間がかかります。<br/>しばらくすると<code>Tomcat started on port(s): 8080 (http)</code>という表示されます。<br/>では実際にブラウザで<a href="http://localhost:8080/">http://localhost:8080/</a>にアクセスしてください。<br/>画面に <strong>Hello World!(Groovy version : 2.4.7)</strong> と表示されることが確認できると思います。<br/>Groovyインストールしてないぞ！？と思った方も居るかも知れませんが、SpringBootによって自動的にインストール、設定されたものです。<br/>つまり、Groovyを態々自分でインストールする必要はありません。 </p>
+            <p>SpringBootとGroovyの力を利用すれば、ビルドツールすら必要としないWEBアプリケーションを開発することが出来ます。<br/>当然大きなアプリケーションになればビルドツールを導入したほうが色々便利なのですが、まずはこのシンプルさを利用して軽快に、そして楽しくSpringBootとGroovyでWEBアプリケーションを開発していきましょう。</p>
+            <p><em>以降誠意作成中！</em></p>
+          </div>
+          <div class="content-nav content-nav-bottom">
+            <a class="prev-page" href="../installation/index.html">
+            <i class="fa fa-angle-left"></i>
+            <span class="number">2.</span>
+            インストールの事前準備
+            </a>
+          </div>
+          <div class="footer">
+            <p class="credit text-muted">Powered by <a href="https://github.com/kobo/gaiden">Gaiden</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../js/jquery-2.1.1.min.js"></script>
+    <script src="../js/highlight.js"></script>
+    <script src="../js/application.js"></script>
+    <script src="../js/my.js"></script>
+    <script>
+      if (window.WebSocket) {
+        var socket = new WebSocket("ws://localhost:39295/");
+        socket.onmessage = function () {
+          location.reload();
+        };
+      }
+    </script>
+  </body>
+</html>
